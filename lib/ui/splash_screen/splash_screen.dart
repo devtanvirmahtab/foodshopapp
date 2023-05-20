@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodshopapp/ui/auth_screen/login_screen.dart';
+import 'package:foodshopapp/ui/home/home_screen.dart';
+
+import '../../consts/firebase_consts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,10 +17,20 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
-      Future.delayed(Duration(seconds: 2)).then((value) =>
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> LogInScreen()))
-      );
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if(currentUser != null){
+        Future.delayed(Duration(seconds: 2)).then((value) =>
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:  (context) => HomeScreen()), (route) => false)
+
+        );
+      }
+      else{
+        Future.delayed(Duration(seconds: 2)).then((value) =>
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:  (context) => LogInScreen()), (route) => false)
+
+        );
+      }
+
     });
   }
 

@@ -58,8 +58,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                    try{
                      await controller.signUpMethod(
                          email: emailController.text,password:passwordController.text
-                     ).then((value){
-                       return controller.storeUserData(
+                     ).then((value) {
+                        controller.storeUserData(
                            email: emailController.text,
                            password: passwordController.text,
                            name: nameController.text,

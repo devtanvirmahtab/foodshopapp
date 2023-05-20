@@ -49,7 +49,7 @@ TextStyle  get textStyle  {
   return GoogleFonts.lato(
       textStyle: const  TextStyle(
           fontSize: 16,
-          color: Colors.grey
+          color: Colors.black87
       )
   );
 }
