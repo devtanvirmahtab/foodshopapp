@@ -119,10 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return GestureDetector(
                           onTap: (){
                             Get.to(ProductDetailsPage(
-                              imageUrl: "${snapshot.data!.docs[index]["productImage"]}",
-                              title: "${snapshot.data!.docs[index]["productTitle"]}",
-                              description: "${snapshot.data!.docs[index]["productDescription"]}",
-                              price: snapshot.data!.docs[index]["productPrice"],
+                              data: snapshot.data!.docs[index]
                             ));
                           },
                           child: Padding(
